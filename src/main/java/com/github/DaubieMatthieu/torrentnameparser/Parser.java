@@ -1,4 +1,6 @@
-import model.ParsingFile;
+package com.github.DaubieMatthieu.torrentnameparser;
+
+import com.github.DaubieMatthieu.torrentnameparser.model.ParsingFile;
 
 import java.security.InvalidParameterException;
 import java.util.regex.Matcher;

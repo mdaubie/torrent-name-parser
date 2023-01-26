@@ -1,4 +1,4 @@
-package model;
+package com.github.DaubieMatthieu.torrentnameparser.model;
 
 import java.util.Objects;
 

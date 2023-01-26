@@ -1,4 +1,4 @@
-package model;
+package com.github.DaubieMatthieu.torrentnameparser.model;
 
 import java.security.InvalidParameterException;
 import java.util.Objects;

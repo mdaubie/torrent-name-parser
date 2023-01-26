@@ -6,8 +6,17 @@
 
     <groupId>com.github.DaubieMatthieu</groupId>
     <artifactId>torrent-name-parser</artifactId>
-    <version>0.0</version>
+    <version>1.0</version>
     <name>Torrent Name Parser</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

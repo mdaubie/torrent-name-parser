@@ -8,7 +8,7 @@ The pattern is based on the naming conventions of files shared via torrent (p2p)
 most files), a more demanding version on the respect of torrent conventions, but also more complete is available at the
 link mentioned above.
 
-## Version 1.0
+## Version 1.0.1
 
 - Supported languages: English (en, eng) & French (fr, fre)
 - Supported extensions: mkv, avi, mp4, srt, txt

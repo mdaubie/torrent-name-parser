@@ -1,4 +1,6 @@
-import model.ParsingFile;
+package com.github.mdaubie.torrentnameparser;
+
+import com.github.mdaubie.torrentnameparser.model.ParsingFile;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

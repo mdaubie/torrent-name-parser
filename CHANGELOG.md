@@ -1,4 +1,9 @@
 
+## [1.0.1] - 2023-05-02
+### :bug: Bug Fixes
+- [`3c03948`](https://github.com/mdaubie/torrent-name-parser/commit/3c03948f0ba1fa473f31f946293b383a2b583a7f) - **publish**: change job java version from 8 to 17 *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+
 ## [1.0.0] - 2023-05-02
 ### :boom: BREAKING CHANGES
 - due to [`cf0568f`](https://github.com/mdaubie/torrent-name-parser/commit/cf0568fa5ebc57a4d2fa08dbb7336637f93d6af2) - added library main code, API is functional *(commit by [@mdaubie](https://github.com/mdaubie))*:
@@ -32,3 +37,4 @@
 
 
 [1.0.0]: https://github.com/mdaubie/torrent-name-parser/compare/0.0.0...1.0.0
+[1.0.1]: https://github.com/mdaubie/torrent-name-parser/compare/1.0.0...1.0.1

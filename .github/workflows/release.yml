@@ -1,0 +1,80 @@
+name: Release
+
+on:
+  workflow_dispatch: # Trigger manually
+  push:
+    branches:
+      - release
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      id-token: write # Enable OIDC for gitSign
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup signature
+        uses: chainguard-dev/actions/setup-gitsign@main
+      - name: Determine next version
+        id: versioning
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: release
+          patchList: fix, refactor, ci, docs, perf, style, test, build, cd
+      - name: Create tag # next tag needs to exist for changelog generation
+        id: generate-tag
+        run: |
+          git tag ${{ steps.versioning.outputs.nextStrict }}
+          git push origin ${{ steps.versioning.outputs.nextStrict }}
+      - name: Update CHANGELOG.md
+        id: generate-changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ steps.versioning.outputs.nextStrict }}
+          excludeTypes: chore
+      - name: Update pom.xml
+        run: mvn -B versions:set -DnewVersion=${{ steps.versioning.outputs.nextStrict }} -DgenerateBackupPoms=false
+      - name: Commit CHANGELOG.md and pom.xml
+        id: version-commits
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add CHANGELOG.md
+          git commit -m "chore(release): update CHANGELOG.md for ${{ steps.versioning.outputs.next }}"
+          git add pom.xml */pom.xml
+          git commit -m "chore(release): update Maven version for ${{ steps.versioning.outputs.next }}"
+          git push origin release
+          git tag -f ${{ steps.versioning.outputs.nextStrict }}
+          git push -f origin ${{ steps.versioning.outputs.nextStrict }}
+      - name: Create release
+        id: create-release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ steps.versioning.outputs.nextStrict }}
+          release_name: Release ${{ steps.versioning.outputs.nextStrict }}
+          body: |
+            Changes in this release:
+            ${{ steps.generate-changelog.outputs.changes }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Delete generated tag on failure
+        if: failure() && steps.generate-tag.outcome == 'success'
+        run: git push -d origin ${{ steps.versioning.outputs.nextStrict }}
+      - name: Revert generated version commits on failure
+        if: failure() && steps.version-commits.outcome == 'success'
+        run: |
+          git revert --no-edit ${{ env.GITHUB_SHA }}..HEAD
+          git push origin release
+      - name: Push version commits to master
+        run: |
+          git fetch --unshallow
+          git checkout master
+          git pull
+          git merge --ff release
+          git push origin master

@@ -9,6 +9,26 @@
     <version>0.0.0</version>
     <name>Torrent Name Parser</name>
 
+    <description>Parses filenames in torrent convention using regexes</description>
+    <url>https://github.com/mdaubie/torrent-name-parser</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:git://github.com/mdaubie/torrent-name-parser.git</connection>
+        <developerConnection>scm:git:ssh://github.com:mdaubie/torrent-name-parser.git</developerConnection>
+        <url>https://github.com/mdaubie/torrent-name-parser/tree/master</url>
+    </scm>
+    <developers>
+        <developer>
+            <name>Matthieu Daubié</name>
+            <email>matthieu.daubie@eleve.isep.fr</email>
+        </developer>
+    </developers>
+
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>

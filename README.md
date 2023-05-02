@@ -15,3 +15,15 @@ Library for parsing filenames in torrent convention using regexes
 - Regex: This regex is quite flexible, so it works with most files, I published
   it [here](https://regex101.com/library/HNJVuO) (there is two versions available, the v1 is more complete but more
   demanding)
+
+### Related projects
+
+I am working on a web app project to handle my collection of downloaded movies and series, you can find it
+here: [The Movie Shelf](https://github.com/mdaubie/movie-shelf)
+
+This is a personal project for my needs, so it probably won't be interesting for you (I might actually keep it private),
+but I need to develop some libraries for this main project which might be useful to you:
+
+- [MKV Toolbox](https://github.com/mdaubie/mkv-toolbox)
+- [Srt Parser](https://github.com/mdaubie/srt-parser)
+- [Color of Film](https://github.com/mdaubie/color-of-film)

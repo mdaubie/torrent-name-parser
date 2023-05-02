@@ -1,4 +1,9 @@
 
+## [1.0.2] - 2023-05-02
+### :bug: Bug Fixes
+- [`c6478d3`](https://github.com/mdaubie/torrent-name-parser/commit/c6478d3f68bff64a415fd3a5f02785dc9ffb5f5f) - **publish**: bumping maven-javadoc-plugin and nexus-staging-maven-plugin to more stable versions *(commit by [@mdaubie](https://github.com/mdaubie))*
+
+
 ## [1.0.1] - 2023-05-02
 ### :bug: Bug Fixes
 - [`3c03948`](https://github.com/mdaubie/torrent-name-parser/commit/3c03948f0ba1fa473f31f946293b383a2b583a7f) - **publish**: change job java version from 8 to 17 *(commit by [@mdaubie](https://github.com/mdaubie))*
@@ -38,3 +43,4 @@
 
 [1.0.0]: https://github.com/mdaubie/torrent-name-parser/compare/0.0.0...1.0.0
 [1.0.1]: https://github.com/mdaubie/torrent-name-parser/compare/1.0.0...1.0.1
+[1.0.2]: https://github.com/mdaubie/torrent-name-parser/compare/1.0.1...1.0.2

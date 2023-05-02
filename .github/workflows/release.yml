@@ -45,7 +45,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git add CHANGELOG.md
           git commit -m "chore(release): update CHANGELOG.md for ${{ steps.versioning.outputs.next }}"
-          git add pom.xml */pom.xml
+          git add pom.xml
           git commit -m "chore(release): update Maven version for ${{ steps.versioning.outputs.next }}"
           git push origin release
           git tag -f ${{ steps.versioning.outputs.nextStrict }}

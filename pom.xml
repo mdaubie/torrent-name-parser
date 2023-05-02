@@ -6,7 +6,7 @@
 
     <groupId>io.github.mdaubie</groupId>
     <artifactId>torrent-name-parser</artifactId>
-    <version>0.0.0</version>
+    <version>1.0.0</version>
     <name>Torrent Name Parser</name>
 
     <description>Parses filenames in torrent convention using regexes</description>
